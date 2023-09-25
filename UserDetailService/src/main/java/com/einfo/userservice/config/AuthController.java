@@ -10,9 +10,11 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.einfo.userservice.jwtmodel.JwtRequest;
@@ -43,7 +45,9 @@ public class AuthController {
 		String token = this.helper.generateToken(userDetails);
 
 		JwtResponce response = JwtResponce.builder().jwtToken(token).username(userDetails.getUsername()).build();
+		logger.info("token created " + token);
 		return new ResponseEntity<>(response, HttpStatus.OK);
+		
 	}
 
 	private void doAuthenticate(String email, String password) {
@@ -57,7 +61,5 @@ public class AuthController {
 		}
 
 	}
-	
-	
 
 }

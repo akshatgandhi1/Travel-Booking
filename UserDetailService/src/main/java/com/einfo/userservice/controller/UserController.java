@@ -25,19 +25,15 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@PostMapping("/create")
+	@PostMapping()
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public UserDto createUser(@Valid @RequestBody UserDto user) {
 		return userService.createUser(user);
 	}
 	
-	@GetMapping
-	@ResponseStatus(code = HttpStatus.OK)
-	public List<UserDto> getAllUser() {
-		return userService.getUsers();
-	}
 	
-	@GetMapping("/{userid}")
+	
+	@GetMapping("/get/{userid}")
 	public UserDto getUserById(@PathVariable("userid") String userid) {
 		return userService.getUserById(userid);
 	}

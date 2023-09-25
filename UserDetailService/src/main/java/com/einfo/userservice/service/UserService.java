@@ -5,7 +5,7 @@ import java.util.List;
 import com.einfo.userservice.Dto.UserDto;
 
 public interface UserService {
-
+	
 	UserDto createUser(UserDto user);
 	
 	List<UserDto> getUsers();

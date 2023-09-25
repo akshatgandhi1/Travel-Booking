@@ -21,7 +21,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document
-public class User implements UserDetails{
+public class User {
 
 	@Id
 	private String userid;
@@ -35,36 +35,6 @@ public class User implements UserDetails{
 	@NotNull
     @Size(min = 10, max = 10, message = "Phone number must be of 10 numbers")
 	private String contact;
-	
-	
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return null;
-	}
-	
-	@Override
-	public String getUsername() {
-		return this.useremail;
-	}
-	@Override
-	public boolean isAccountNonExpired() {
-		return true;
-	}
-	@Override
-	public boolean isAccountNonLocked() {
-		return true;
-	}
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return true;
-	}
-	@Override
-	public boolean isEnabled() {
-		return true;
-	}
-	
-	
-	
 	
 		
 }

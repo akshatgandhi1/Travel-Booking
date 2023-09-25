@@ -96,7 +96,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserDto updateUser(UserDto userDto) {
 		User user = repository.findById(userDto.getUserid()).get();
-		user.setUserName(userDto.getUsername());
+		user.setUserName(userDto.getUserName());
 		user.setUseremail(userDto.getUseremail());
 		user.setPassword(userDto.getPassword());
 		user.setContact(userDto.getContact());
